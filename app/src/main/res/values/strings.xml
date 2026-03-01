@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calcula IFRN</string>
+    <string name="descricao_notas">* Nota da E1 (primeira avaliação, peso 2)\n* Nota da E2 (segunda avaliação, peso 2)\n* As notas devem estar entre 0 e 100.\n</string>
+    <string name="calcular_notas">Calcular Notas</string>
+    <string name="limpar_campos">Reiniciar</string>
+    <string name="statusAluno">Aprovado/Reprovado/Prova final/pendente</string>
+</resources>

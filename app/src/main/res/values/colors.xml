@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#3F8F3F</color>
+    <color name="primary_dark">#2E6B2E</color>
+    <color name="primary_light">#6FBF6F</color>
+
+    <!-- cor para a tela dos resultados -->
+    <!-- Para prova final utilizar a cor primaria com os ajustes -->
+    <color name="prova_final_texto">#0E3D85</color>
+    <color name="prova_final_background">#D1E1FA</color>
+    <color name="prova_final_cardview">#469ffb</color>
+
+    <!-- Para REPROVADO  -->
+    <color name="reprovado_texto">#9B0000</color>
+    <color name="reprovado_background">#ffebeb</color>
+    <color name="reprovado_cardview">#ff8080</color>
+
+    <color name="reprovado_legenda">#DD5757</color>
+
+    <!-- Para APROVADOS utilizar a cor primaria com os ajustes -->
+    <color name="aprovado_background">#CEE9CE</color>
+    <color name="aprovado_legenda">#289A9B</color>
+
+    <!-- Verde de apoio -->
+    <color name="secondary">#66BB6A</color>
+    <color name="secondary_dark">#388E3C</color>
+    <color name="secondary_light">#98EE99</color>
+
+    <!-- Fundo e superfícies -->
+    <color name="background">#f2f2f2</color>
+    <color name="background_resultado">#0B1F3D</color>
+    <color name="background_light">#D1D1D1</color>
+    <color name="background_info">#e3e3e3</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="background_cinza">#BCBCBC</color>
+
+    <!-- Texto -->
+    <!-- Texto em verde bem suave -->
+    <color name="text_green_soft">#E6F6E8</color>
+
+    <!-- Amarelo claro para destaques -->
+    <color name="text_yellow_light">#FFF4B5</color>
+
+    <!-- Amarelo suave -->
+    <color name="text_yellow_soft">#FFE680</color>
+
+    <!-- Texto neutro -->
+    <color name="text_primary">#333333</color>
+    <color name="text_secondary">#777777</color>
+
+    <!-- Destaque para logo amarela -->
+    <color name="accent_yellow">#FFC107</color>
+
+    <color name="setas">#6898D3</color>
+    <color name="amarelo_queimado">#FBC75F</color>
+
+
+    <!-- GRADIENTES -->
+    <color name="azul_900">#152C54</color>
+    <color name="ciano">#16679F</color>
+
+
+</resources>

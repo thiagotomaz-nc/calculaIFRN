@@ -1,0 +1,212 @@
+package com.thiago.tomaz.calculaifrn
+
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import com.google.android.material.snackbar.Snackbar
+import com.thiago.tomaz.calculaifrn.databinding.ActivityExibirResultadoBinding
+import kotlin.math.roundToInt
+
+class ExibirResultado : AppCompatActivity() {
+
+    private lateinit var bidding: ActivityExibirResultadoBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        bidding = ActivityExibirResultadoBinding.inflate(layoutInflater)
+        setContentView(bidding.root)
+
+        bidding.btnVoltar.setOnClickListener {
+            fecharTela()
+        }
+        bidding.imgBack.setOnClickListener {
+            fecharTela()
+        }
+
+        val notas = intent
+        var nota1 = 0;
+        var nota2 = 0;
+
+        //Boa pratica para se saber se a activity não recebeu nenhum valor
+        if (notas == null) {
+            Snackbar.make(
+                findViewById<View>(android.R.id.content), "Preencha o campo da nota 1",
+                Snackbar.LENGTH_SHORT
+            ).setBackgroundTint(Color.RED).setTextColor(Color.WHITE).show()
+            fecharTela()
+        }
+
+        //preenchimento das informaçções
+        nota1 = notas.getStringExtra("nota1")?.toInt() ?: 0
+        nota2 = notas.getStringExtra("nota2")?.toInt() ?: 0
+
+        val media = CalcularMediaNotas(nota1, nota2)
+
+        statusAluno(
+            media,
+            nota1,
+            nota2,
+            bidding.txtMediaScreenResult,
+            bidding.txtNotaEtapa01,
+            bidding.txtNotaEtapa02,
+            bidding.txtStatusAluno,
+            bidding.txtSituacaoAluno,
+            bidding.cardViewSituacaoAluno,
+            bidding.tituloSituacaoProvaAluno,
+            bidding.imgStatusConteiner,
+            bidding.imgStatusConteinerIcon,
+            bidding.situacaoAluno,
+        )
+    }
+
+    private fun statusAluno(
+        mediaNotas: Int,
+        nota1: Int,
+        nota2: Int,
+        txtMediaScreenView: TextView,
+        txtNotaEtapa1View: TextView,
+        txtNotaEtapa2View: TextView,
+        txtStatusView: TextView,
+        situacaoALunoView: TextView,
+        cardViewSituacaoAluno: CardView,
+        tituloSituacaoProvaAluno: TextView,
+        imgStatusConteiner: ImageView,
+        imgStatusConteinerIcon: ImageView,
+        situacaoAlunoLinearLayout: LinearLayout
+    ) {
+
+        txtMediaScreenView.text = mediaNotas.toString()
+        txtNotaEtapa1View.text = "1ª Etapa: nota  = $nota1 pontos"
+
+        var situaçaoDoAluno = ""
+        var bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
+        var colorCardViewSituacaoAluno = getColor(R.color.background_light)
+        var colorStatusTexto = getColor(R.color.amarelo_queimado)
+
+
+        var status = ""
+        var etapa2 = ""
+        var tituloSituacaoAluno = ""
+
+
+
+        if (nota2 == 0) {
+
+            etapa2 = "2ª Etapa: Nota não informada"
+            tituloSituacaoAluno = "2ª Etapa"
+            situaçaoDoAluno =
+                "Nota necessária = ${calcularNotaSegundaEtapa(nota1)} pontos"
+
+            bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
+            colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
+            status = "Pendente"
+
+        } else {
+            //calcular APROVADO/REPROVADO/PROVA FINAL
+            //If prova final - CALCULAR QUANTO DEVE TIRAR NA PROVA FINAL
+            etapa2 = "2ª Etapa: nota  = $nota2 pontos"
+
+            if (mediaNotas >= 60) {
+
+                bidding.situacaoAluno.visibility = View.GONE
+                colorStatusTexto = getColor(R.color.primary_light)
+                bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_aprovado_gradiente_verde)
+                imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_aprovado_solid_verde))
+                imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
+                status = "Aprovado"
+
+            } else if (mediaNotas >= 20 && mediaNotas < 60) {
+
+                colorStatusTexto = getColor(R.color.prova_final_background)
+                colorCardViewSituacaoAluno = getColor(R.color.prova_final_texto)
+                tituloSituacaoProvaAluno.setTextColor(getColor(R.color.prova_final_background))
+                bordaViewMediaNota = getDrawable(R.drawable.circulo_centro_falso_grafico_borda)
+                imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_centro_falso_grafico_borda))
+                imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_prova_final_refresh_24))
+
+                situaçaoDoAluno = "Nota necessaria = ${
+                    calcularNotaProvaFinal(
+                        nota1,
+                        nota2,
+                        mediaNotas
+                    )
+                } pontos"
+                status = "Prova Final"
+                tituloSituacaoAluno = status
+
+            } else {
+
+                status = "Reprovado"
+                colorStatusTexto = getColor(R.color.reprovado_cardview)
+                imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_reprovado))
+                imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_reprovado_24))
+                situacaoAlunoLinearLayout.visibility = View.GONE
+                bordaViewMediaNota =
+                    getDrawable(R.drawable.circulo_centro_falso_grafico_borda_reprovado)
+
+
+            }
+        }
+
+        txtNotaEtapa2View.text = etapa2
+        txtStatusView.text = status
+        bidding.constraintLayoutBorda.background = bordaViewMediaNota
+        cardViewSituacaoAluno.setCardBackgroundColor(colorCardViewSituacaoAluno)
+        situacaoALunoView.text = situaçaoDoAluno
+        tituloSituacaoProvaAluno.text = tituloSituacaoAluno
+        txtStatusView.setTextColor(colorStatusTexto)
+
+
+
+    }
+
+
+    private fun calcularNotaProvaFinal(nota1: Int, nota2: Int, mediaNotas: Int): Int {
+
+        //aprovado após a avaliação final, o estudante que obtiver média final igual ou superior a 60 pontos
+        var notaProvafinal = 0
+
+        var nf1 = 0
+        var nf2 = 0
+        var nf3 = 0
+
+        nf1 = (2.0 * 60 - mediaNotas).roundToInt()
+        nf2 = calcularNotaProvaFinalEtapa1(nota2)
+        nf3 = calcularNotaSegundaEtapa(nota1)
+        notaProvafinal = nf1
+
+        if (nf2 < notaProvafinal) {
+            notaProvafinal = nf2
+        }
+        if (nf3 < notaProvafinal) {
+            notaProvafinal = nf3
+        }
+
+        return notaProvafinal
+
+    }
+
+    private fun calcularNotaProvaFinalEtapa1(nota2: Int): Int {
+        return ((300 - (3 * nota2)) / 2.0).roundToInt()
+    }
+
+    private fun calcularNotaSegundaEtapa(nota1: Int): Int {
+
+        val notaNecessaria2 = (300 - (nota1 * 2)) / 3.0
+        return notaNecessaria2.roundToInt()
+    }
+
+    private fun CalcularMediaNotas(nota1: Int, nota2: Int): Int {
+        val media = ((nota1 * 2) + (nota2 * 3)) / 5.0
+        return media.roundToInt()
+    }
+
+    fun fecharTela() {
+        finish()
+    }
+}

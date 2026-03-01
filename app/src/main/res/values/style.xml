@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="ToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/inter_regular</item>  <!-- aqui a fonte -->
+        <item name="android:textSize">22sp</item>                  <!-- tamanho do título -->
+        <item name="android:textColor">@color/text_green_soft</item> <!-- cor do título -->
+    </style>
+</resources>
