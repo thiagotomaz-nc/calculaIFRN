@@ -43,7 +43,7 @@ class ExibirResultado : AppCompatActivity() {
 
         //preenchimento das informaçções
         nota1 = notas.getStringExtra("nota1")?.toInt() ?: 0
-        nota2 = notas.getStringExtra("nota2")?.toInt() ?: 0
+        nota2 = notas.getStringExtra("nota2")?.toInt() ?: -1
 
         val media = CalcularMediaNotas(nota1, nota2)
 
@@ -80,7 +80,7 @@ class ExibirResultado : AppCompatActivity() {
         situacaoAlunoLinearLayout: LinearLayout
     ) {
 
-        txtMediaScreenView.text = mediaNotas.toString()
+        txtMediaScreenView.text = if (nota2 != -1) mediaNotas.toString() else "${(mediaNotas+1)}"
         txtNotaEtapa1View.text = "1ª Etapa: nota  = $nota1 pontos"
 
         var situaçaoDoAluno = ""
@@ -94,8 +94,7 @@ class ExibirResultado : AppCompatActivity() {
         var tituloSituacaoAluno = ""
 
 
-
-        if (nota2 == 0) {
+        if (nota2 == -1) {
 
             etapa2 = "2ª Etapa: Nota não informada"
             tituloSituacaoAluno = "2ª Etapa"
@@ -203,7 +202,7 @@ class ExibirResultado : AppCompatActivity() {
 
     private fun CalcularMediaNotas(nota1: Int, nota2: Int): Int {
         val media = ((nota1 * 2) + (nota2 * 3)) / 5.0
-        return media.roundToInt()
+        return  media.roundToInt()
     }
 
     fun fecharTela() {

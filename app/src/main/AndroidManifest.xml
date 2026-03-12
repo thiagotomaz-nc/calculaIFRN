@@ -15,11 +15,7 @@
             android:screenOrientation="portrait"
             android:name=".ExibirResultado"
             android:exported="false" />
-        <activity
-            android:name=".ResultadoAluno"
-            android:screenOrientation="portrait"
-            android:exported="false" />
-        <activity
+               <activity
             android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="true">

@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         val bundle = Bundle()
 
         bundle.putString("nota1", nota1)
-        bundle.putString("nota2", nota2?.ifBlank { "0" } ?: "0")
+        bundle.putString("nota2", nota2.ifBlank { "-1" })
 
         tela.putExtras(bundle)
 
