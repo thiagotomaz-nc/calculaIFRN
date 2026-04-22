@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.google.android.material.snackbar.Snackbar
 import com.thiago.tomaz.calculaifrn.databinding.ActivityMainBinding
 
@@ -13,8 +14,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         biddingMainActivity = ActivityMainBinding.inflate(layoutInflater)
         setContentView(biddingMainActivity.root)
+
+
 
         biddingMainActivity.btnCalcularNotas.setOnClickListener {
             calcularNota(
