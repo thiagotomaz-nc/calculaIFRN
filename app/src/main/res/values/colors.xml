@@ -55,12 +55,18 @@
     <color name="accent_yellow">#FFC107</color>
 
     <color name="setas">#6898D3</color>
-    <color name="amarelo_queimado">#FBC75F</color>
+    <color name="amarelo_queimado">#EF9D01</color>
 
 
     <!-- GRADIENTES -->
     <color name="azul_900">#152C54</color>
     <color name="ciano">#16679F</color>
+
+    <!-- cores escuras -->
+    <color name="green_900">#2E7D2D</color>
+    <color name="orange_900">#E5AA07</color>
+    <color name="blue_900">#1A62A8</color>
+    <color name="red_900">#DA1D29</color>
 
 
 </resources>

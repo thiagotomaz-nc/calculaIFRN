@@ -4,10 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
 import com.thiago.tomaz.calculaifrn.databinding.ActivityExibirResultadoBinding
 import kotlin.math.roundToInt
@@ -56,11 +55,13 @@ class ExibirResultado : AppCompatActivity() {
             bidding.txtNotaEtapa02,
             bidding.txtStatusAluno,
             bidding.txtSituacaoAluno,
-            bidding.cardViewSituacaoAluno,
-            bidding.tituloSituacaoProvaAluno,
             bidding.imgStatusConteiner,
             bidding.imgStatusConteinerIcon,
             bidding.situacaoAluno,
+            bidding.txtSituacaoAluno,
+            bidding.imgStatusConteiner2,
+            bidding.imgStatusConteinerIcon2,
+
         )
     }
 
@@ -73,11 +74,12 @@ class ExibirResultado : AppCompatActivity() {
         txtNotaEtapa2View: TextView,
         txtStatusView: TextView,
         situacaoALunoView: TextView,
-        cardViewSituacaoAluno: CardView,
-        tituloSituacaoProvaAluno: TextView,
         imgStatusConteiner: ImageView,
         imgStatusConteinerIcon: ImageView,
-        situacaoAlunoLinearLayout: LinearLayout
+        situacaoAlunoLinearLayout: ConstraintLayout,
+        tituloSituacaoProvaAluno: TextView,
+        imgStatusConteiner2: ImageView,
+        imgStatusConteinerIcon2: ImageView
     ) {
 
         txtMediaScreenView.text = if (nota2 != -1) mediaNotas.toString() else "${(mediaNotas+1)}"
@@ -97,9 +99,7 @@ class ExibirResultado : AppCompatActivity() {
         if (nota2 == -1) {
 
             etapa2 = "2ª Etapa: Nota não informada"
-            tituloSituacaoAluno = "2ª Etapa"
-            situaçaoDoAluno =
-                "Nota necessária = ${calcularNotaSegundaEtapa(nota1)} pontos"
+            tituloSituacaoAluno = "2ª Etapa = ${calcularNotaSegundaEtapa(nota1)} pontos"
 
             bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
             colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
@@ -112,21 +112,25 @@ class ExibirResultado : AppCompatActivity() {
 
             if (mediaNotas >= 60) {
 
-                bidding.situacaoAluno.visibility = View.GONE
-                colorStatusTexto = getColor(R.color.primary_light)
+                tituloSituacaoAluno = "Parabéns! Continue Assim."
+                colorStatusTexto = getColor(R.color.green_900)
                 bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_aprovado_gradiente_verde)
                 imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_aprovado_solid_verde))
                 imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
+                imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_aprovado_solid_verde))
+                imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
                 status = "Aprovado"
 
             } else if (mediaNotas >= 20 && mediaNotas < 60) {
 
-                colorStatusTexto = getColor(R.color.prova_final_background)
+                colorStatusTexto = getColor(R.color.blue_900)
                 colorCardViewSituacaoAluno = getColor(R.color.prova_final_texto)
-                tituloSituacaoProvaAluno.setTextColor(getColor(R.color.prova_final_background))
+               // tituloSituacaoProvaAluno.setTextColor(getColor(R.color.prova_final_background))
                 bordaViewMediaNota = getDrawable(R.drawable.circulo_centro_falso_grafico_borda)
                 imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_centro_falso_grafico_borda))
                 imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_prova_final_refresh_24))
+                imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_centro_falso_grafico_borda))
+                imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_prova_final_refresh_24))
 
                 situaçaoDoAluno = "Nota necessaria = ${
                     calcularNotaProvaFinal(
@@ -136,18 +140,19 @@ class ExibirResultado : AppCompatActivity() {
                     )
                 } pontos"
                 status = "Prova Final"
-                tituloSituacaoAluno = status
+                tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!"
 
             } else {
 
                 status = "Reprovado"
-                colorStatusTexto = getColor(R.color.reprovado_cardview)
+                colorStatusTexto = getColor(R.color.red_900)
                 imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_reprovado))
                 imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_reprovado_24))
-                situacaoAlunoLinearLayout.visibility = View.GONE
+                imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_reprovado))
+                imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_reprovado_24))
                 bordaViewMediaNota =
                     getDrawable(R.drawable.circulo_centro_falso_grafico_borda_reprovado)
-
+                tituloSituacaoAluno = "Não foi desa vez. Continue estundando e não desista!"
 
             }
         }
@@ -155,7 +160,8 @@ class ExibirResultado : AppCompatActivity() {
         txtNotaEtapa2View.text = etapa2
         txtStatusView.text = status
         bidding.constraintLayoutBorda.background = bordaViewMediaNota
-        cardViewSituacaoAluno.setCardBackgroundColor(colorCardViewSituacaoAluno)
+        bidding.txtMediaScreenResult.setTextColor( colorStatusTexto)
+        //cardViewSituacaoAluno.setCardBackgroundColor(colorCardViewSituacaoAluno)
         situacaoALunoView.text = situaçaoDoAluno
         tituloSituacaoProvaAluno.text = tituloSituacaoAluno
         txtStatusView.setTextColor(colorStatusTexto)
