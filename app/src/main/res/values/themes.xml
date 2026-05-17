@@ -9,4 +9,10 @@
     </style>
 
     <style name="Theme.CalculaIFRN" parent="Base.Theme.CalculaIFRN" />
+
+    <style name="ToolbarMenuWhite" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="popupMenuBackground">@color/background</item>
+    </style>
 </resources>

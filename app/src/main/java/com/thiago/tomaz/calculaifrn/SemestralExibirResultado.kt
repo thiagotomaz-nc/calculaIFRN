@@ -8,16 +8,16 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
-import com.thiago.tomaz.calculaifrn.databinding.ActivityExibirResultadoBinding
+import com.thiago.tomaz.calculaifrn.databinding.ActivityExibirResultadoSemestralBinding
 import kotlin.math.roundToInt
 
-class ExibirResultado : AppCompatActivity() {
+class SemestralExibirResultado : AppCompatActivity() {
 
-    private lateinit var bidding: ActivityExibirResultadoBinding
+    private lateinit var bidding: ActivityExibirResultadoSemestralBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bidding = ActivityExibirResultadoBinding.inflate(layoutInflater)
+        bidding = ActivityExibirResultadoSemestralBinding.inflate(layoutInflater)
         setContentView(bidding.root)
 
         bidding.btnVoltar.setOnClickListener {
@@ -44,7 +44,7 @@ class ExibirResultado : AppCompatActivity() {
         nota1 = notas.getStringExtra("nota1")?.toInt() ?: 0
         nota2 = notas.getStringExtra("nota2")?.toInt() ?: -1
 
-        val media = CalcularMediaNotas(nota1, nota2)
+        val media = CalcularMediaNotas(nota1, if (nota2 ==-1) 0 else nota2 )
 
         statusAluno(
             media,
@@ -82,10 +82,10 @@ class ExibirResultado : AppCompatActivity() {
         imgStatusConteinerIcon2: ImageView
     ) {
 
-        txtMediaScreenView.text = if (nota2 != -1) mediaNotas.toString() else "${(mediaNotas+1)}"
+        txtMediaScreenView.text =  mediaNotas.toString()
         txtNotaEtapa1View.text = "1ª Etapa: nota  = $nota1 pontos"
 
-        var situaçaoDoAluno = ""
+        var situacaoDoAluno = ""
         var bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
         var colorCardViewSituacaoAluno = getColor(R.color.background_light)
         var colorStatusTexto = getColor(R.color.amarelo_queimado)
@@ -99,7 +99,7 @@ class ExibirResultado : AppCompatActivity() {
         if (nota2 == -1) {
 
             etapa2 = "2ª Etapa: Nota não informada"
-            tituloSituacaoAluno = "2ª Etapa = ${calcularNotaSegundaEtapa(nota1)} pontos"
+            tituloSituacaoAluno = "Nota necessária para ser aprovado\n\n2ª Etapa = ${calcularNotaSegundaEtapa(nota1)} pontos"
 
             bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
             colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
@@ -132,7 +132,7 @@ class ExibirResultado : AppCompatActivity() {
                 imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_centro_falso_grafico_borda))
                 imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_prova_final_refresh_24))
 
-                situaçaoDoAluno = "Nota necessaria = ${
+                situacaoDoAluno = "Nota necessaria = ${
                     calcularNotaProvaFinal(
                         nota1,
                         nota2,
@@ -140,7 +140,7 @@ class ExibirResultado : AppCompatActivity() {
                     )
                 } pontos"
                 status = "Prova Final"
-                tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!"
+                tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!\n\n${situacaoDoAluno}"
 
             } else {
 
@@ -159,10 +159,10 @@ class ExibirResultado : AppCompatActivity() {
 
         txtNotaEtapa2View.text = etapa2
         txtStatusView.text = status
-        bidding.constraintLayoutBorda.background = bordaViewMediaNota
+        bidding.constraintLayoutBordaMedia.background = bordaViewMediaNota
         bidding.txtMediaScreenResult.setTextColor( colorStatusTexto)
         //cardViewSituacaoAluno.setCardBackgroundColor(colorCardViewSituacaoAluno)
-        situacaoALunoView.text = situaçaoDoAluno
+        situacaoALunoView.text = situacaoDoAluno
         tituloSituacaoProvaAluno.text = tituloSituacaoAluno
         txtStatusView.setTextColor(colorStatusTexto)
 
@@ -180,7 +180,7 @@ class ExibirResultado : AppCompatActivity() {
         var nf2 = 0
         var nf3 = 0
 
-        nf1 = (2.0 * 60 - mediaNotas).roundToInt()
+        nf1 = ((2.0 * 60) - mediaNotas).roundToInt()
         nf2 = calcularNotaProvaFinalEtapa1(nota2)
         nf3 = calcularNotaSegundaEtapa(nota1)
         notaProvafinal = nf1
@@ -201,17 +201,16 @@ class ExibirResultado : AppCompatActivity() {
     }
 
     private fun calcularNotaSegundaEtapa(nota1: Int): Int {
-
         val notaNecessaria2 = (300 - (nota1 * 2)) / 3.0
         return notaNecessaria2.roundToInt()
     }
 
     private fun CalcularMediaNotas(nota1: Int, nota2: Int): Int {
-        val media = ((nota1 * 2) + (nota2 * 3)) / 5.0
-        return  media.roundToInt()
+        val media = ((nota1 * 2) + (nota2 * 3)) / 5
+        return  media
     }
 
-    fun fecharTela() {
+   private fun fecharTela() {
         finish()
-    }
+   }
 }
