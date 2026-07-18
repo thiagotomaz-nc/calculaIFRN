@@ -28,12 +28,14 @@
         android:id="@+id/tabsLayoutSemestralBimestral"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-        app:tabIndicatorColor="@color/primary_light"
+        app:tabIndicatorColor="@color/prova_final_texto"
         app:tabIndicatorFullWidth="true"
         app:tabSelectedTextAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:tabSelectedTextColor="@color/primary">
+        app:tabSelectedTextColor="@color/prova_final_texto"
+        app:tabTextColor="@color/text_primary">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"

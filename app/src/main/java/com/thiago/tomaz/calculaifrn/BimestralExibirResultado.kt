@@ -63,7 +63,8 @@ class BimestralExibirResultado : AppCompatActivity() {
     private fun statusAluno(media: Int, nota1: Int, nota2: Int, nota3: Int, nota4: Int) {
 
         bindingBimestralExibirResultado.txtMediaScreenResult.text =  media.toString()
-        bindingBimestralExibirResultado.txtNotaEtapa01.text = "1ª Bimestre: nota  = $nota1 pontos"
+        bindingBimestralExibirResultado.txtNotaEtapa01.text = "Nota  = $nota1 pontos"
+        bindingBimestralExibirResultado.progressBarNotaetapa1.progress = nota1
 
 
 
@@ -72,13 +73,10 @@ class BimestralExibirResultado : AppCompatActivity() {
         var colorStatusTexto = getColor(R.color.amarelo_queimado)
         var colorStatusTextoSituacaoAluno = getColor(R.color.amarelo_queimado)
 
-        var segundoBimestreBackground = getColor(R.color.azul_900)
-        var terceiroBimestreBackground = getColor(R.color.azul_900)
-        var quartoBimestreBackground = getColor(R.color.azul_900)
 
-        var corTextoNotasSegundo = getColor(R.color.white)
-        var corTextoNotasTerceiro = getColor(R.color.white)
-        var corTextoNotasQuarto = getColor(R.color.white)
+        var corTextoNotasSegundo = getColor(R.color.black)
+        var corTextoNotasTerceiro = getColor(R.color.black)
+        var corTextoNotasQuarto = getColor(R.color.black)
 
         var status = ""
         var segundoBimestre = ""
@@ -103,25 +101,20 @@ class BimestralExibirResultado : AppCompatActivity() {
 
             var quartaNota =  ceil(quartaNotaTemp/3.0).toInt()
 
-
-            segundoBimestreBackground = getColor(R.color.accent_yellow)
-            terceiroBimestreBackground = getColor(R.color.accent_yellow)
-            quartoBimestreBackground = getColor(R.color.accent_yellow)
-
             //tratar a partir da nota2
             tituloSituacaoAluno = "Notas necessárias para ser aprovado"
             bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
             colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
             status = "Pendente"
 
-            segundoBimestre = "2º Bimestre: nota necessária = ${segundaNota/2} pontos"
-            terceiroBimestre = "3º Bimestre: nota necessária = ${terceiraNota} pontos"
+            segundoBimestre = "Nota necessária = ${segundaNota/2} pontos"
+            terceiroBimestre = "Nota necessária = ${terceiraNota} pontos"
 
-            quartoBimestre = "4º Bimestre: nota necessária = ${quartaNota} pontos"
+            quartoBimestre = "Nota necessária = ${quartaNota} pontos"
 
-            corTextoNotasSegundo = getColor(R.color.black)
-            corTextoNotasTerceiro = getColor(R.color.black)
-            corTextoNotasQuarto = getColor(R.color.black)
+            corTextoNotasSegundo = getColor(R.color.red_900)
+            corTextoNotasTerceiro = getColor(R.color.red_900)
+            corTextoNotasQuarto = getColor(R.color.red_900)
 
         }else if (nota3 == -1){
 
@@ -135,28 +128,25 @@ class BimestralExibirResultado : AppCompatActivity() {
 
             var quartaNota =  ceil(quartaNotaTemp/3.0).toInt()
 
-
-            terceiroBimestreBackground = getColor(R.color.accent_yellow)
-            quartoBimestreBackground = getColor(R.color.accent_yellow)
-
             //tratar a partir da nota2
             tituloSituacaoAluno = "Notas necessárias para ser aprovado"
             bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
             colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
             status = "Pendente"
 
-            segundoBimestre = "2ª Bimestre: nota  = $nota2 pontos"
-            terceiroBimestre = "3º Bimestre: nota necessária = ${terceiraNota} pontos"
-            quartoBimestre = "4º Bimestre: nota necessária = ${quartaNota} pontos"
+            segundoBimestre = "Nota  = $nota2 pontos"
+            terceiroBimestre = "Nota necessária = ${terceiraNota} pontos"
+            quartoBimestre = "Nota necessária = ${quartaNota} pontos"
 
-            corTextoNotasTerceiro = getColor(R.color.black)
-            corTextoNotasQuarto = getColor(R.color.black)
+            corTextoNotasTerceiro = getColor(R.color.red_900)
+            corTextoNotasQuarto = getColor(R.color.red_900)
+            bindingBimestralExibirResultado.progressBarNotaEtapa2.progress = nota2
 
         }else if (nota4 == -1){
             //tratar apenas a nota4
 
-            quartoBimestreBackground = getColor(R.color.accent_yellow)
-            corTextoNotasQuarto = getColor(R.color.black)
+
+            corTextoNotasQuarto = getColor(R.color.red_900)
             tituloSituacaoAluno = "Notas necessárias para ser aprovado"
             status = "Pendente"
             //a partor daqui os calculos
@@ -168,7 +158,7 @@ class BimestralExibirResultado : AppCompatActivity() {
             //fim dos calculos
 
             if ((segundoGrupo / 3) > 100){
-                quartoBimestreBackground = getColor(R.color.red_900)
+
                 corTextoNotasQuarto = getColor(R.color.white)
                 var situacaoDoAluno = "Nota mínima = ${
                     calcularNotaProvaFinal(
@@ -193,19 +183,26 @@ class BimestralExibirResultado : AppCompatActivity() {
             bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
             colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
 
-            segundoBimestre = "2ª Bimestre: nota  = $nota2 pontos"
-            terceiroBimestre = "3º Bimestre: nota necessária = ${nota3} pontos"
+            segundoBimestre = "Nota = $nota2 pontos"
+            terceiroBimestre = "Nota = ${nota3} pontos"
+
+            bindingBimestralExibirResultado.progressBarNotaEtapa2.progress = nota2
+            bindingBimestralExibirResultado.progressBarNotaEtapa3.progress = nota3
 
             //aqui verificar se a nota do semestre ultrapassa os 100, caso ultrapasse aluno em prova final.
-            quartoBimestre = "4º Bimestre: nota necessária = ${quartaNota} pontos"
+            quartoBimestre = "Nota necessária = ${quartaNota} pontos"
 
         }else{
          //notas preenchidas para calcular se o aluno foi aprovado, reprovado ou prova final e informar as notas necessárias para a aprovação dele
-            segundoBimestre = "2ª Bimestre: nota = $nota2 pontos"
-            terceiroBimestre = "3º Bimestre: nota = ${nota3} pontos"
-            quartoBimestre = "4º Bimestre: nota = ${nota4} pontos"
+            segundoBimestre = "Nota = $nota2 pontos"
+            terceiroBimestre = "Nota = ${nota3} pontos"
+            quartoBimestre = "Nota = ${nota4} pontos"
 
-             if (media >= 60) {
+            bindingBimestralExibirResultado.progressBarNotaEtapa2.progress=nota2
+            bindingBimestralExibirResultado.progressBarNotaEtapa3.progress=nota3
+            bindingBimestralExibirResultado.progressBarNotaEtapa4.progress=nota4
+
+            if (media >= 60) {
                 tituloSituacaoAluno = "Parabéns! Continue Assim."
                 colorStatusTexto = getColor(R.color.green_900)
                 bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_aprovado_gradiente_verde)
@@ -213,10 +210,12 @@ class BimestralExibirResultado : AppCompatActivity() {
                 bindingBimestralExibirResultado.imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
                 bindingBimestralExibirResultado.imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_aprovado_solid_verde))
                 bindingBimestralExibirResultado.imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
-                status = "Aprovado"
+                status = "APROVADO(A)"
                  colorStatusTextoSituacaoAluno = getColor(R.color.green_900)
 
             }else if (media >= 20 && media < 60) {
+
+                bindingBimestralExibirResultado.cardViewStatus.visibility = View.VISIBLE
 
                  colorStatusTexto = getColor(R.color.blue_900)
                  colorStatusTextoSituacaoAluno = getColor(R.color.blue_900)
@@ -227,22 +226,21 @@ class BimestralExibirResultado : AppCompatActivity() {
                  bindingBimestralExibirResultado.imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_centro_falso_grafico_borda))
                  bindingBimestralExibirResultado.imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_prova_final_refresh_24))
 
-                 var situacaoDoAluno = "Nota mínima = ${
-                     calcularNotaProvaFinal(
-                         nota1,
-                         nota2,
-                         nota3,
-                         nota4,
-                         media
-                     )
-                 } pontos"
+                val notaMinimaNecessaria  =  calcularNotaProvaFinal(
+                        nota1,
+                        nota2,
+                        nota3,
+                        nota4,
+                        media)
 
-                 status = "Prova Final"
-                 tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!\n\n${situacaoDoAluno}"
+                bindingBimestralExibirResultado.notaNecessaria.text = "${notaMinimaNecessaria}"
+
+                 status = "PROVA FINAL"
+                 tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!"
 
              }else {
 
-                 status = "Reprovado"
+                 status = "REPROVADO(A)"
                  colorStatusTexto = getColor(R.color.red_900)
                  colorStatusTextoSituacaoAluno = getColor(R.color.red_900)
 
@@ -262,11 +260,6 @@ class BimestralExibirResultado : AppCompatActivity() {
         bindingBimestralExibirResultado.txtNotaEtapa03.text = terceiroBimestre
         bindingBimestralExibirResultado.txtNotaEtapa04.text = quartoBimestre
 
-        // alterar as cores dos cards via comando
-        bindingBimestralExibirResultado.cardViewNota2.setCardBackgroundColor(segundoBimestreBackground)
-        bindingBimestralExibirResultado.cardViewNota3.setCardBackgroundColor(terceiroBimestreBackground)
-        bindingBimestralExibirResultado.cardViewNota4.setCardBackgroundColor(quartoBimestreBackground)
-
         bindingBimestralExibirResultado.txtNotaEtapa02.setTextColor(corTextoNotasSegundo)
         bindingBimestralExibirResultado.txtNotaEtapa03.setTextColor(corTextoNotasTerceiro)
         bindingBimestralExibirResultado.txtNotaEtapa04.setTextColor(corTextoNotasQuarto)
@@ -278,7 +271,6 @@ class BimestralExibirResultado : AppCompatActivity() {
         bindingBimestralExibirResultado.txtMediaScreenResult.setTextColor( colorStatusTexto)
 
        bindingBimestralExibirResultado.txtSituacaoAluno.text = tituloSituacaoAluno
-
 
     }
 

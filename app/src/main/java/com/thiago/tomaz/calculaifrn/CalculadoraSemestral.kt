@@ -32,8 +32,8 @@ class CalculadoraSemestral : Fragment() {
     }
 
     private fun limparCampos() {
-        bindingCalculadoraSemestral.edtNotaE1.text.clear()
-        bindingCalculadoraSemestral.edtNotaE2.text.clear()
+        bindingCalculadoraSemestral.edtNotaE1.text?.clear()
+        bindingCalculadoraSemestral.edtNotaE2.text?.clear()
         bindingCalculadoraSemestral.edtNotaE1.requestFocus()
 
     }

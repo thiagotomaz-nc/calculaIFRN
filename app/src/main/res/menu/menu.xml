@@ -7,6 +7,5 @@
     android:icon="@drawable/ic_avaliacao"
     app:showAsAction="collapseActionView"
     >
-
 </item>
 </menu>

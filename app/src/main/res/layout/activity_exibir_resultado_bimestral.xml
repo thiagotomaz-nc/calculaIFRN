@@ -1,433 +1,660 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="@color/azul_900"
-android:fitsSystemWindows="true"
-tools:context=".BimestralExibirResultado">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_900"
+    android:fitsSystemWindows="true"
+    tools:context=".BimestralExibirResultado">
 
-<com.google.android.material.appbar.MaterialToolbar
-    android:id="@+id/materialToolbar2"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
-    android:minHeight="?attr/actionBarSize"
-    android:theme="?attr/actionBarTheme"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-    android:id="@+id/imgBack"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:background="@android:color/transparent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:srcCompat="@drawable/ic_backspace_24" />
-
-<TextView
-    android:id="@+id/textView2"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="20dp"
-    android:text="Resultado - Semestral"
-    android:textAlignment="textStart"
-    android:textColor="@color/white"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="@+id/imgBack"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.6"
-    app:layout_constraintStart_toEndOf="@+id/imgBack"
-    app:layout_constraintTop_toTopOf="@+id/imgBack" />
-
-<ScrollView
-    android:id="@+id/scrolView2"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="24dp"
-    app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/materialToolbar2">
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/imgBack"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_backspace_24" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintConteiner"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="Resultado do Bimestre"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/imgBack"
+        app:layout_constraintTop_toTopOf="@+id/imgBack" />
+
+    <ScrollView
+        android:id="@+id/scrolView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewNota4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
-                app:layout_constraintStart_toStartOf="@+id/txtNotaEtapa01"
-                app:layout_constraintTop_toTopOf="@id/view4">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txtNotaEtapa04"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="8dp"
-                        android:text="Nota 4"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayoutBordaMedia"
-                android:layout_width="185dp"
-                android:layout_height="185dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/circulo_borda_aprovado_gradiente_verde"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:id="@+id/constraintConteiner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_white">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewSituacaoAluno"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/circulo_white"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintSituacaoAluno"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toEndOf="@+id/cardViewStatus"
+                        app:layout_constraintStart_toStartOf="@+id/cardViewStatus"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                    <TextView
-                        android:id="@+id/txtMediaAnual"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        android:text="Média"
-                        android:textAlignment="center"
-                        android:textColor="@color/azul_900"
-                        android:textSize="16sp"
-                        app:layout_constraintEnd_toEndOf="@+id/txtMediaScreenResult"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/txtMediaScreenResult"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgStatusConteiner2"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintStart_toStartOf="@+id/view"
+                            app:layout_constraintTop_toBottomOf="@+id/view"
+                            app:srcCompat="@drawable/circulo_amarelo_queimado" />
 
-                    <TextView
-                        android:id="@+id/txtMediaScreenResult"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="000"
-                        android:textColor="@color/black"
-                        android:textSize="80sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        <ImageView
+                            android:id="@+id/imgStatusConteinerIcon2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_status_pendente_warning_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner2"
+                            app:layout_constraintEnd_toEndOf="@+id/imgStatusConteiner2"
+                            app:layout_constraintStart_toStartOf="@+id/imgStatusConteiner2"
+                            app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner2" />
 
-                    <ImageView
-                        android:id="@+id/imgStatusConteiner"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginBottom="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/txtMediaScreenResult"
-                        app:layout_constraintHorizontal_bias="0.495"
-                        app:layout_constraintStart_toStartOf="@+id/txtMediaScreenResult"
-                        app:srcCompat="@drawable/circulo_amarelo_queimado" />
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="SITUAÇÃO DO ALUNO"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                    <ImageView
-                        android:id="@+id/imgStatusConteinerIcon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_status_pendente_warning_24"
-                        app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner"
-                        app:layout_constraintEnd_toEndOf="@+id/imgStatusConteiner"
-                        app:layout_constraintStart_toStartOf="@+id/imgStatusConteiner"
-                        app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner" />
+                        <TextView
+                            android:id="@+id/txtSituacaoAluno"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            android:text="Prova Final"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/view"
+                            app:layout_constraintStart_toStartOf="@+id/txtStatusAluno"
+                            app:layout_constraintTop_toBottomOf="@+id/txtStatusAluno" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@color/background_resultado"
+                            app:layout_constraintEnd_toEndOf="@+id/textView3"
+                            app:layout_constraintStart_toStartOf="@+id/textView3"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/txtStatusAluno"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:text="Pendente"
+                            android:textAlignment="viewStart"
+                            android:textColor="#FBC75F"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner2"
+                            app:layout_constraintEnd_toEndOf="@+id/textView3"
+                            app:layout_constraintStart_toEndOf="@+id/imgStatusConteiner2"
+                            app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner2" />
 
-            <TextView
-                android:id="@+id/txtNotaEtapa01"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="Nota 1"
-                android:textAlignment="viewStart"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayoutBordaMedia" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/background_cinza"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtNotaEtapa01" />
+                </androidx.cardview.widget.CardView>
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/background_cinza"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewNota2" />
-
-            <View
-                android:id="@+id/view4"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@color/background_cinza"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardViewNota3" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewNota2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:layout_marginTop="16dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
-                app:layout_constraintStart_toStartOf="@+id/txtNotaEtapa01"
-                app:layout_constraintTop_toBottomOf="@+id/view2">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txtNotaEtapa02"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="8dp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        android:text="Nota 2"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewNota3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
-                app:layout_constraintStart_toStartOf="@+id/txtNotaEtapa01"
-                app:layout_constraintTop_toTopOf="@id/view3">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/txtNotaEtapa03"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="8dp"
-                        android:text="Nota 3"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="14sp"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/situacaoAluno"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="20dp"
-                android:layout_marginTop="24dp"
-                android:background="@drawable/gradiente_background_white"
-                app:layout_constraintEnd_toEndOf="@+id/cardViewNota4"
-                app:layout_constraintStart_toStartOf="@+id/cardViewNota4"
-                app:layout_constraintTop_toBottomOf="@+id/cardViewNota4">
-
-                <ImageView
-                    android:id="@+id/imgStatusConteiner2"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintStart_toStartOf="@+id/view"
-                    app:layout_constraintTop_toBottomOf="@+id/view"
-                    app:srcCompat="@drawable/circulo_amarelo_queimado" />
-
-                <ImageView
-                    android:id="@+id/imgStatusConteinerIcon2"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewStatus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_status_pendente_warning_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner2"
-                    app:layout_constraintEnd_toEndOf="@+id/imgStatusConteiner2"
-                    app:layout_constraintStart_toStartOf="@+id/imgStatusConteiner2"
-                    app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner2" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
                     android:layout_marginTop="24dp"
-                    android:text="Situação do Aluno"
-                    android:textColor="@color/azul_900"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
+                    android:backgroundTint="@color/aprovado_background"
+                    android:visibility="gone"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewSituacaoAluno">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/notaNecessaria"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:text="00"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/blue_900"
+                            android:textSize="48sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="16dp"
+                            android:gravity="center_vertical"
+                            android:text="NOTA NECESSÁRIA PARA APROVAÇÃO"
+                            android:textColor="@color/blue_900"
+                            android:textSize="16sp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/notaNecessaria"
+                            app:layout_constraintStart_toEndOf="@+id/imageView2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/alvo_flecha" />
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:text="pontos"
+                            android:textAlignment="center"
+                            android:textColor="@color/text_secondary"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/notaNecessaria"
+                            app:layout_constraintStart_toEndOf="@+id/textView15"
+                            app:layout_constraintStart_toStartOf="@+id/notaNecessaria"
+                            app:layout_constraintTop_toBottomOf="@+id/notaNecessaria" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewNotas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardViewStatus">
 
-                <TextView
-                    android:id="@+id/txtSituacaoAluno"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintNotas"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="RESUMO DAS ETAPAS"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="1º bimestre"
+                            android:textColor="@color/azul_900"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/constraintCirculoEtapa1"
+                            app:layout_constraintTop_toTopOf="@+id/constraintCirculoEtapa1" />
+
+                        <TextView
+                            android:id="@+id/txtNotaEtapa01"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Nota 1"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView11"
+                            app:layout_constraintEnd_toEndOf="@+id/textView10"
+                            app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintCirculoEtapa1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/circulo_estatico_semestral_etapa01"
+                            app:layout_constraintStart_toStartOf="@+id/textView10"
+                            app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+                            <TextView
+                                android:id="@+id/textViewBimestre1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="1ª"
+                                android:textAlignment="center"
+                                android:textColor="@color/surface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ProgressBar
+                            android:id="@+id/progressBarNotaetapa1"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:progressTint="@color/blue_900"
+                            app:layout_constraintBottom_toBottomOf="@+id/constraintCirculoEtapa1"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintStart_toStartOf="@+id/textView11"
+                            app:layout_constraintTop_toBottomOf="@+id/txtNotaEtapa01" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintCirculoEtapa2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="24dp"
+                            android:background="@drawable/circulo_estatico_semestral_etapa02"
+                            app:layout_constraintStart_toStartOf="@+id/constraintCirculoEtapa1"
+                            app:layout_constraintTop_toBottomOf="@+id/constraintCirculoEtapa1">
+
+                            <TextView
+                                android:id="@+id/textViewBimestre2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="2ª"
+                                android:textAlignment="center"
+                                android:textColor="@color/surface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="2º bimestre"
+                            android:textColor="@color/azul_900"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/constraintCirculoEtapa2"
+                            app:layout_constraintTop_toTopOf="@+id/constraintCirculoEtapa2" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarNotaEtapa2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:progressTint="@color/blue_900"
+                            app:layout_constraintBottom_toBottomOf="@+id/constraintCirculoEtapa2"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintStart_toStartOf="@+id/textView11"
+                            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+                        <TextView
+                            android:id="@+id/txtNotaEtapa02"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Nota 2"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintCirculoEtapa3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="24dp"
+                            android:background="@drawable/circulo_estatico_semestral_etapa02"
+                            app:layout_constraintStart_toStartOf="@+id/constraintCirculoEtapa1"
+                            app:layout_constraintTop_toBottomOf="@id/constraintCirculoEtapa2">
+
+                            <TextView
+                                android:id="@+id/textViewBimestre3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="3ª"
+                                android:textAlignment="center"
+                                android:textColor="@color/surface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/textViewEtapa3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="3º bimestre"
+                            android:textColor="@color/azul_900"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/constraintCirculoEtapa3"
+                            app:layout_constraintTop_toTopOf="@+id/constraintCirculoEtapa3" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarNotaEtapa3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:progressTint="@color/blue_900"
+                            app:layout_constraintBottom_toBottomOf="@+id/constraintCirculoEtapa3"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintStart_toStartOf="@+id/textView11"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewEtapa3" />
+
+                        <TextView
+                            android:id="@+id/txtNotaEtapa03"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Nota 3"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textViewEtapa3"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintTop_toTopOf="@+id/textViewEtapa3" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintCirculoEtapa4"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24dp"
+                            android:background="@drawable/circulo_estatico_semestral_etapa02"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/constraintCirculoEtapa1"
+                            app:layout_constraintTop_toBottomOf="@id/constraintCirculoEtapa3">
+
+                            <TextView
+                                android:id="@+id/textViewBimestre4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="4ª"
+                                android:textAlignment="center"
+                                android:textColor="@color/surface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/textViewEtapa4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="4º bimestre"
+                            android:textColor="@color/azul_900"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/constraintCirculoEtapa4"
+                            app:layout_constraintTop_toTopOf="@+id/constraintCirculoEtapa4" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarNotaEtapa4"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:progressTint="@color/blue_900"
+                            app:layout_constraintBottom_toBottomOf="@+id/constraintCirculoEtapa4"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintStart_toStartOf="@+id/textView11"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewEtapa4" />
+
+                        <TextView
+                            android:id="@+id/txtNotaEtapa04"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Nota 4"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textViewEtapa4"
+                            app:layout_constraintEnd_toEndOf="@+id/txtNotaEtapa01"
+                            app:layout_constraintTop_toTopOf="@+id/textViewEtapa4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="24dp"
-                    android:text="Prova Final"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewNotas">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="MÉDIA DO ALUNO"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/constraintLayoutBordaMedia"
+                            android:layout_width="185dp"
+                            android:layout_height="185dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:background="@drawable/circulo_borda_aprovado_gradiente_verde"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/constraintLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="@drawable/circulo_white"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+
+                                <TextView
+                                    android:id="@+id/txtMediaAnual2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:paddingTop="8dp"
+                                    android:paddingBottom="8dp"
+                                    android:text="Média"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/azul_900"
+                                    android:textSize="16sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/txtMediaScreenResult"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="000"
+                                    android:textColor="@color/black"
+                                    android:textSize="80sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/imgStatusConteiner"
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_marginBottom="8dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="@+id/txtMediaScreenResult"
+                                    app:layout_constraintHorizontal_bias="0.495"
+                                    app:layout_constraintStart_toStartOf="@+id/txtMediaScreenResult"
+                                    app:srcCompat="@drawable/circulo_amarelo_queimado" />
+
+                                <ImageView
+                                    android:id="@+id/imgStatusConteinerIcon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_status_pendente_warning_24"
+                                    app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner"
+                                    app:layout_constraintEnd_toEndOf="@+id/imgStatusConteiner"
+                                    app:layout_constraintStart_toStartOf="@+id/imgStatusConteiner"
+                                    app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVoltar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="32dp"
+                    android:backgroundTint="@null"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="Voltar"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/text_secondary"
+                    app:cornerRadius="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/view"
-                    app:layout_constraintStart_toStartOf="@+id/txtStatusAluno"
-                    app:layout_constraintTop_toBottomOf="@+id/txtStatusAluno" />
-
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/background_resultado"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-                <TextView
-                    android:id="@+id/txtStatusAluno"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:text="Pendente"
-                    android:textAlignment="viewStart"
-                    android:textColor="#FBC75F"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner2"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
-                    app:layout_constraintStart_toEndOf="@+id/imgStatusConteiner2"
-                    app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner2" />
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintTop_toBottomOf="@id/cardView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </LinearLayout>
-</ScrollView>
-
-<com.google.android.material.button.MaterialButton
-    android:id="@+id/btnVoltar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="16dp"
-    android:backgroundTint="@null"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp"
-    android:text="Voltar"
-    android:textColor="@color/white"
-    android:textSize="16sp"
-    app:backgroundTint="@color/ciano"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,10 +32,10 @@ class CalculadoraBimestral : Fragment() {
     }
 
     private fun limparCampos() {
-        bindingCalculadoraBimestral.edtNotaE1.text.clear()
-        bindingCalculadoraBimestral.edtNotaE2.text.clear()
-        bindingCalculadoraBimestral.edtNotaE3.text.clear()
-        bindingCalculadoraBimestral.edtNotaE4.text.clear()
+        bindingCalculadoraBimestral.edtNotaE1.text!!.clear()
+        bindingCalculadoraBimestral.edtNotaE2.text!!.clear()
+        bindingCalculadoraBimestral.edtNotaE3.text!!.clear()
+        bindingCalculadoraBimestral.edtNotaE4.text!!.clear()
         bindingCalculadoraBimestral.edtNotaE1.requestFocus()
     }
 

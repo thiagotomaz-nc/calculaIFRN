@@ -83,13 +83,16 @@ class SemestralExibirResultado : AppCompatActivity() {
     ) {
 
         txtMediaScreenView.text =  mediaNotas.toString()
-        txtNotaEtapa1View.text = "1ª Etapa: nota  = $nota1 pontos"
+        txtNotaEtapa1View.text = "$nota1 pontos"
 
-        var situacaoDoAluno = ""
+        var situacaoDoAluno = 0
         var bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
         var colorCardViewSituacaoAluno = getColor(R.color.background_light)
         var colorStatusTexto = getColor(R.color.amarelo_queimado)
 
+
+        bidding.progressBarNotaetapa1.max = 100
+        bidding.progressBarNotaEtapa2.max = 100
 
         var status = ""
         var etapa2 = ""
@@ -98,19 +101,33 @@ class SemestralExibirResultado : AppCompatActivity() {
 
         if (nota2 == -1) {
 
-            etapa2 = "2ª Etapa: Nota não informada"
-            tituloSituacaoAluno = "Nota necessária para ser aprovado\n\n2ª Etapa = ${calcularNotaSegundaEtapa(nota1)} pontos"
+            etapa2 = "Nota não informada"
+            330
+            bidding.textView15.text = "NOTA NECESSÁRIA PARA A 2ª ETAPA"
+           bidding.textView15.setTextColor(getColor(R.color.red_900))
+            bidding.notaNecessaria.setTextColor(getColor(R.color.red_900))
+
+            situacaoDoAluno = calcularNotaSegundaEtapa(nota1)
+            //tituloSituacaoAluno = "${situacaoDoAluno} pontos"
+
+            bidding.progressBarNotaetapa1.progress = nota1
+
 
             bordaViewMediaNota = getDrawable(R.drawable.circulo_borda_pendente)
             colorCardViewSituacaoAluno = getColor(R.color.amarelo_queimado)
             status = "Pendente"
+            tituloSituacaoAluno = "Nota da 2ª etapa"
 
         } else {
             //calcular APROVADO/REPROVADO/PROVA FINAL
             //If prova final - CALCULAR QUANTO DEVE TIRAR NA PROVA FINAL
-            etapa2 = "2ª Etapa: nota  = $nota2 pontos"
+            etapa2 = "$nota2 pontos"
+
+            bidding.progressBarNotaetapa1.progress = nota1
+            bidding.progressBarNotaEtapa2.progress = nota2
 
             if (mediaNotas >= 60) {
+
 
                 tituloSituacaoAluno = "Parabéns! Continue Assim."
                 colorStatusTexto = getColor(R.color.green_900)
@@ -119,7 +136,9 @@ class SemestralExibirResultado : AppCompatActivity() {
                 imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
                 imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_aprovado_solid_verde))
                 imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
-                status = "Aprovado"
+                status = "APROVADO(A)"
+
+                bidding.cardViewStatus.visibility = View.GONE
 
             } else if (mediaNotas >= 20 && mediaNotas < 60) {
 
@@ -132,26 +151,26 @@ class SemestralExibirResultado : AppCompatActivity() {
                 imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_centro_falso_grafico_borda))
                 imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_prova_final_refresh_24))
 
-                situacaoDoAluno = "Nota necessaria = ${
+                situacaoDoAluno =
                     calcularNotaProvaFinal(
                         nota1,
                         nota2,
                         mediaNotas
                     )
-                } pontos"
-                status = "Prova Final"
-                tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!\n\n${situacaoDoAluno}"
+
+                status = "PROVA FINAL"
+                tituloSituacaoAluno = "Você esta em Prova final. Boa sorte!"
+
 
             } else {
 
-                status = "Reprovado"
+                status = "REPROVADO(A)"
                 colorStatusTexto = getColor(R.color.red_900)
                 imgStatusConteiner.setImageDrawable(getDrawable(R.drawable.circulo_reprovado))
                 imgStatusConteinerIcon.setImageDrawable(getDrawable(R.drawable.ic_status_reprovado_24))
                 imgStatusConteiner2.setImageDrawable(getDrawable(R.drawable.circulo_reprovado))
                 imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_reprovado_24))
-                bordaViewMediaNota =
-                    getDrawable(R.drawable.circulo_centro_falso_grafico_borda_reprovado)
+                bordaViewMediaNota = getDrawable(R.drawable.circulo_centro_falso_grafico_borda_reprovado)
                 tituloSituacaoAluno = "Não foi desa vez. Continue estundando e não desista!"
 
             }
@@ -162,8 +181,9 @@ class SemestralExibirResultado : AppCompatActivity() {
         bidding.constraintLayoutBordaMedia.background = bordaViewMediaNota
         bidding.txtMediaScreenResult.setTextColor( colorStatusTexto)
         //cardViewSituacaoAluno.setCardBackgroundColor(colorCardViewSituacaoAluno)
-        situacaoALunoView.text = situacaoDoAluno
+       // situacaoALunoView.text = situacaoDoAluno
         tituloSituacaoProvaAluno.text = tituloSituacaoAluno
+        bidding.notaNecessaria.text = "${situacaoDoAluno}"
         txtStatusView.setTextColor(colorStatusTexto)
 
 
