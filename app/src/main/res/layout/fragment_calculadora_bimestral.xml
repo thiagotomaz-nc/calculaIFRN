@@ -48,9 +48,11 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
+                    android:textColorHint="@color/text_primary"
                     app:endIconCheckable="true"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/text_secondary"
+                    app:hintTextColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lgdNotaE"
@@ -65,7 +67,11 @@
                         android:hint="Nota do 1º bimestre"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:numeric="integer" />
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textColorLink="@color/black" />
+
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -75,6 +81,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
+                    android:textColorHint="@color/text_primary"
                     app:endIconCheckable="true"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/text_secondary"
@@ -91,8 +98,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Nota do 2º bimestre"
                         android:inputType="number"
-                        android:maxLength="3"
-                        android:numeric="integer" />
+                        android:maxLength="3" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -102,6 +108,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
+                    android:textColorHint="@color/text_primary"
                     app:endIconCheckable="true"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/text_secondary"
@@ -119,7 +126,7 @@
                         android:hint="Nota do 3º bimestre"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:numeric="integer" />
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -129,6 +136,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
+                    android:textColorHint="@color/text_primary"
                     app:endIconCheckable="true"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/text_secondary"
@@ -145,8 +153,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Nota do 4º bimestre"
                         android:inputType="number"
-                        android:maxLength="3"
-                        android:numeric="integer" />
+                        android:maxLength="3" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
@@ -319,6 +326,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="32dp"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"

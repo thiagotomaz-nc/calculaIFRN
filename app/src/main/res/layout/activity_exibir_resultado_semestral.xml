@@ -78,17 +78,19 @@
                         android:id="@+id/cardViewSituacaoAluno"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="24dp"
+                        android:layout_marginEnd="16dp"
                         app:cardBackgroundColor="@color/white"
-                        app:layout_constraintEnd_toEndOf="@+id/cardView"
-                        app:layout_constraintStart_toStartOf="@+id/cardView"
+                        app:cardCornerRadius="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/situacaoAluno"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
+                            android:layout_height="match_parent">
 
                             <ImageView
                                 android:id="@+id/imgStatusConteiner2"
@@ -168,116 +170,79 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardView"
+                        android:id="@+id/cardViewStatus"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginEnd="8dp"
-                        app:cardBackgroundColor="@color/white"
+                        android:layout_marginTop="24dp"
+                        android:backgroundTint="@color/aprovado_background"
+                        android:elevation="0dp"
                         app:cardCornerRadius="15dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cardViewNotas">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp"
+                        app:layout_constraintEnd_toEndOf="@+id/cardViewSituacaoAluno"
+                        app:layout_constraintStart_toStartOf="@+id/cardViewSituacaoAluno"
+                        app:layout_constraintTop_toBottomOf="@id/cardViewSituacaoAluno">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
                             <TextView
-                                android:id="@+id/textView5"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/notaNecessaria"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_marginEnd="16dp"
+                                android:text="00"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/blue_900"
+                                android:textSize="48sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+                            <TextView
+                                android:id="@+id/textView15"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="16dp"
-                                android:text="MÉDIA DO ALUNO"
-                                android:textColor="@color/black"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="16dp"
+                                android:gravity="center_vertical"
+                                android:text="NOTA NECESSÁRIA PARA APROVAÇÃO"
+                                android:textColor="@color/blue_900"
                                 android:textSize="16sp"
-                                android:textStyle="bold"
-                                app:layout_constraintStart_toStartOf="parent"
+                                android:textStyle="normal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/notaNecessaria"
+                                app:layout_constraintStart_toEndOf="@+id/imageView2"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/constraintLayoutBordaMedia"
-                                android:layout_width="185dp"
-                                android:layout_height="185dp"
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="16dp"
                                 android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
-                                android:background="@drawable/circulo_borda_aprovado_gradiente_verde"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/textView5">
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/alvo_flecha" />
 
-                                <androidx.constraintlayout.widget.ConstraintLayout
-                                    android:id="@+id/constraintLayout"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginBottom="8dp"
-                                    android:background="@drawable/circulo_white"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent">
-
-
-                                    <TextView
-                                        android:id="@+id/txtMediaAnual2"
-                                        android:layout_width="0dp"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginStart="8dp"
-                                        android:layout_marginTop="16dp"
-                                        android:paddingTop="8dp"
-                                        android:paddingBottom="8dp"
-                                        android:text="Média"
-                                        android:textAlignment="center"
-                                        android:textColor="@color/azul_900"
-                                        android:textSize="16sp"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.0"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                    <TextView
-                                        android:id="@+id/txtMediaScreenResult"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="000"
-                                        android:textColor="@color/black"
-                                        android:textSize="80sp"
-                                        android:textStyle="bold"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toTopOf="parent" />
-
-                                    <ImageView
-                                        android:id="@+id/imgStatusConteiner"
-                                        android:layout_width="24dp"
-                                        android:layout_height="24dp"
-                                        android:layout_marginBottom="8dp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
-                                        app:layout_constraintEnd_toEndOf="@+id/txtMediaScreenResult"
-                                        app:layout_constraintHorizontal_bias="0.495"
-                                        app:layout_constraintStart_toStartOf="@+id/txtMediaScreenResult"
-                                        app:srcCompat="@drawable/circulo_amarelo_queimado" />
-
-                                    <ImageView
-                                        android:id="@+id/imgStatusConteinerIcon"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/ic_status_pendente_warning_24"
-                                        app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner"
-                                        app:layout_constraintEnd_toEndOf="@+id/imgStatusConteiner"
-                                        app:layout_constraintStart_toStartOf="@+id/imgStatusConteiner"
-                                        app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner" />
-
-                                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <TextView
+                                android:id="@+id/textView17"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                android:text="pontos"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_secondary"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/notaNecessaria"
+                                app:layout_constraintStart_toEndOf="@+id/textView15"
+                                app:layout_constraintStart_toStartOf="@+id/notaNecessaria"
+                                app:layout_constraintTop_toBottomOf="@+id/notaNecessaria" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -285,13 +250,12 @@
                         android:id="@+id/cardViewNotas"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
                         android:layout_marginTop="24dp"
-                        android:layout_marginEnd="8dp"
                         android:backgroundTint="@color/white"
                         app:cardCornerRadius="15dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:cardElevation="0dp"
+                        app:layout_constraintEnd_toEndOf="@+id/cardViewStatus"
+                        app:layout_constraintStart_toStartOf="@+id/cardViewStatus"
                         app:layout_constraintTop_toBottomOf="@+id/cardViewStatus">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -439,100 +403,138 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardViewStatus"
+                        android:id="@+id/cardViewMedia"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:layout_marginEnd="8dp"
-                        android:backgroundTint="@color/aprovado_background"
+                        android:elevation="0dp"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="15dp"
-                        app:layout_constraintEnd_toEndOf="@+id/cardView"
-                        app:layout_constraintStart_toStartOf="@+id/cardView"
-                        app:layout_constraintTop_toBottomOf="@id/cardViewSituacaoAluno">
+                        app:cardElevation="0dp"
+
+                        app:layout_constraintEnd_toEndOf="@+id/cardViewNotas"
+                        app:layout_constraintStart_toStartOf="@+id/cardViewNotas"
+                        app:layout_constraintTop_toBottomOf="@+id/cardViewNotas">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
-                                android:id="@+id/notaNecessaria"
-                                android:layout_width="0dp"
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="16dp"
-                                android:text="00"
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/blue_900"
-                                android:textSize="48sp"
-                                android:textStyle="bold"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/textView15" />
-
-                            <TextView
-                                android:id="@+id/textView15"
-                                android:layout_width="0dp"
-                                android:layout_height="0dp"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginTop="16dp"
-                                android:layout_marginEnd="8dp"
-                                android:layout_marginBottom="16dp"
-                                android:gravity="center_vertical"
-                                android:text="NOTA NECESSÁRIA PARA APROVAÇÃO"
-                                android:textColor="@color/blue_900"
+                                android:text="MÉDIA DO ALUNO"
+                                android:textColor="@color/black"
                                 android:textSize="16sp"
-                                android:textStyle="normal"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/notaNecessaria"
-                                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/imageView2"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_marginStart="16dp"
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/constraintLayoutBordaMedia"
+                                android:layout_width="185dp"
+                                android:layout_height="185dp"
                                 android:layout_marginTop="16dp"
                                 android:layout_marginBottom="16dp"
+                                android:background="@drawable/circulo_borda_aprovado_gradiente_verde"
                                 app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:srcCompat="@drawable/alvo_flecha" />
+                                app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-                            <TextView
-                                android:id="@+id/textView17"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="16dp"
-                                android:text="pontos"
-                                android:textAlignment="center"
-                                android:textColor="@color/text_secondary"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="@+id/notaNecessaria"
-                                app:layout_constraintStart_toEndOf="@+id/textView15"
-                                app:layout_constraintStart_toStartOf="@+id/notaNecessaria"
-                                app:layout_constraintTop_toBottomOf="@+id/notaNecessaria" />
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/constraintLayout"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:background="@drawable/circulo_white"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+
+                                    <TextView
+                                        android:id="@+id/txtMediaAnual2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:layout_marginTop="16dp"
+                                        android:paddingTop="8dp"
+                                        android:paddingBottom="8dp"
+                                        android:text="Média"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/azul_900"
+                                        android:textSize="16sp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/txtMediaScreenResult"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="000"
+                                        android:textColor="@color/black"
+                                        android:textSize="80sp"
+                                        android:textStyle="bold"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <ImageView
+                                        android:id="@+id/imgStatusConteiner"
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_marginBottom="8dp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="@+id/txtMediaScreenResult"
+                                        app:layout_constraintHorizontal_bias="0.495"
+                                        app:layout_constraintStart_toStartOf="@+id/txtMediaScreenResult"
+                                        app:srcCompat="@drawable/circulo_amarelo_queimado" />
+
+                                    <ImageView
+                                        android:id="@+id/imgStatusConteinerIcon"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/ic_status_pendente_warning_24"
+                                        app:layout_constraintBottom_toBottomOf="@+id/imgStatusConteiner"
+                                        app:layout_constraintEnd_toEndOf="@+id/imgStatusConteiner"
+                                        app:layout_constraintStart_toStartOf="@+id/imgStatusConteiner"
+                                        app:layout_constraintTop_toTopOf="@+id/imgStatusConteiner" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnVoltar"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="24dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_marginBottom="32dp"
                         android:backgroundTint="@null"
                         android:paddingTop="12dp"
                         android:paddingBottom="12dp"
-                        app:cornerRadius="15dp"
                         android:text="Voltar"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        app:backgroundTint="@color/text_secondary"
+                        app:backgroundTint="@color/azul_900"
+                        app:cornerRadius="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@id/cardViewSituacaoAluno"
-                        app:layout_constraintStart_toStartOf="@id/cardViewSituacaoAluno"
-                        app:layout_constraintTop_toBottomOf="@+id/cardViewSituacaoAluno" />
+                        app:layout_constraintEnd_toEndOf="@+id/cardViewMedia"
+                        app:layout_constraintStart_toStartOf="@+id/cardViewMedia"
+                        app:layout_constraintTop_toBottomOf="@+id/cardViewMedia" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

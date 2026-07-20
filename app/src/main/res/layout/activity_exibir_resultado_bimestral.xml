@@ -71,9 +71,11 @@
                     android:id="@+id/cardViewSituacaoAluno"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -173,8 +175,8 @@
                     android:backgroundTint="@color/aprovado_background"
                     android:visibility="gone"
                     app:cardCornerRadius="15dp"
-                    app:layout_constraintEnd_toEndOf="@+id/cardView"
-                    app:layout_constraintStart_toStartOf="@+id/cardView"
+                    app:layout_constraintEnd_toEndOf="@+id/cardViewSituacaoAluno"
+                    app:layout_constraintStart_toStartOf="@+id/cardViewSituacaoAluno"
                     app:layout_constraintTop_toBottomOf="@id/cardViewSituacaoAluno">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -245,13 +247,11 @@
                     android:id="@+id/cardViewNotas"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginEnd="8dp"
                     android:backgroundTint="@color/white"
                     app:cardCornerRadius="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/cardViewSituacaoAluno"
+                    app:layout_constraintStart_toStartOf="@+id/cardViewSituacaoAluno"
                     app:layout_constraintTop_toBottomOf="@+id/cardViewStatus">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -520,16 +520,15 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                    android:id="@+id/cardViewMedia"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/cardViewNotas"
+                    app:layout_constraintStart_toStartOf="@+id/cardViewNotas"
                     app:layout_constraintTop_toBottomOf="@id/cardViewNotas">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -644,12 +643,12 @@
                     android:text="Voltar"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:backgroundTint="@color/text_secondary"
+                    app:backgroundTint="@color/azul_900"
                     app:cornerRadius="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/cardView"
-                    app:layout_constraintStart_toStartOf="@+id/cardView"
-                    app:layout_constraintTop_toBottomOf="@id/cardView" />
+                    app:layout_constraintEnd_toEndOf="@+id/cardViewMedia"
+                    app:layout_constraintStart_toStartOf="@+id/cardViewMedia"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewMedia" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

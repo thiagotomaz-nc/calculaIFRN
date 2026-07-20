@@ -84,6 +84,7 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
+                    android:textColorHint="@color/text_primary"
                     app:endIconCheckable="true"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/text_secondary"
@@ -101,7 +102,8 @@
                         android:hint="Nota da 1ª Etapa"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:numeric="integer" />
+                        android:numeric="integer"
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -109,6 +111,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
+                    android:textColorHint="@color/text_primary"
                     app:endIconCheckable="true"
                     app:endIconMode="clear_text"
                     app:endIconTint="@color/text_secondary"
@@ -125,7 +128,8 @@
                         android:hint="Nota da 2ª Etapa"
                         android:inputType="number"
                         android:maxLength="3"
-                        android:numeric="integer" />
+                        android:numeric="integer"
+                        android:textColor="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.cardview.widget.CardView
@@ -261,6 +265,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="32dp"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
