@@ -138,7 +138,7 @@ class SemestralExibirResultado : AppCompatActivity() {
                 imgStatusConteinerIcon2.setImageDrawable(getDrawable(R.drawable.ic_status_aprovado_check_24))
                 status = "APROVADO(A)"
 
-                bidding.cardViewStatus.visibility = View.GONE
+                //bidding.cardViewStatus.visibility = View.GONE
 
             } else if (mediaNotas >= 20 && mediaNotas < 60) {
 

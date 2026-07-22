@@ -13,8 +13,8 @@ android {
         applicationId = "com.thiago.tomaz.calculaifrn"
         minSdk = 24
         targetSdk = 36
-        versionCode = 15
-        versionName = "3.0.0"
+        versionCode = 17
+        versionName = "3.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
